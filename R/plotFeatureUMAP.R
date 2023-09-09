@@ -29,7 +29,7 @@
 #' }
 plotFeatureUMAP <- function(sce, feat_name = "ADIPOQ", facet = NULL,
                             dim_red_name = "UMAP.HARMONY"){
-  mat <- as.data.frame(as.matrix(t(logcounts(sce))))
+  mat <- as.data.frame(t(as.matrix(logcounts(sce))))
   meta <- as.data.frame(colData(sce))
   dim.red <- as.data.frame(reducedDim(sce, dim_red_name))
   CD <- cbind(mat, meta, dim.red)
